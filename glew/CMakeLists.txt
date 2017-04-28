@@ -21,3 +21,8 @@ add_library(glew
 target_include_directories(glew PUBLIC
 	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
 	$<INSTALL_INTERFACE:include>)
+
+install(TAREGTS glew EXPORT glew
+	ARCHIVE DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}
+	LIBRARY_DESTINATION ${PACKAGE_ROOT0/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}})
+install(TARGETS glew DIRECTORY ${PACKAGE_ROOT}/repository/include DESTINATION ${PACKAGE_ROOT}/include)
