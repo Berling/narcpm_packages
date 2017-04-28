@@ -16,7 +16,7 @@ if (NOT EXISTS ${PACKAGE_ROOT}/repository)
 endif()
 
 add_library(objlib OBJECT ${PACKAGE_ROOT}/repository/src/glew.c)
-set_property(TARGET ${objlib} PROPERTY POSITION_INDEPENDENT_CODE 1)
+set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
 target_include_directories(objlib PUBLIC
 	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
 	$<INSTALL_INTERFACE:include>)
