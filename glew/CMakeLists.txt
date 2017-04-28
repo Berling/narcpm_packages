@@ -15,10 +15,15 @@ if (NOT EXISTS ${PACKAGE_ROOT}/repository)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 endif()
 
-add_library(glew STATIC
-	${PACKAGE_ROOT}/repository/src/glew.c)
-add_library(glew SHARED
-	${PACKAGE_ROOT}/repository/src/glew.c)
+add_library(objlib OBJECT ${PACKAGE_ROOT}/repository/src/glew.c)
+set_property(TARGET ${objlib} PROPERTY POSITION_INDEPENDENT_CODE 1)
+
+add_library(glew_static STATIC
+	$<TARGET_OBJECTS:objlib>)
+add_library(glew_shared SHARED
+	$<TARGET_OBJECTS:objlib>)
+SET_TARGET_PROPERTIES(glew_static PROPERTIES OUTPUT_NAME glew CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(glew_shared PROPERTIES OUTPUT_NAME glew CLEAN_DIRECT_OUTPUT 1)
 
 target_include_directories(glew PUBLIC
 	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
