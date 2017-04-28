@@ -10,9 +10,9 @@ if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 endif()
 
 add_custom_target(extract)
-add_custom_command(TARGET glew
+add_custom_command(TARGET extract
 	COMMAND ${CMAKE_COMMAND} -E tar xf ${PACKAGE_ROOT}/glew.zip)
-add_custom_command(TARGET glew
+add_custom_command(TARGET extract
 	COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 
 # file(GLOB_RECURSE src
