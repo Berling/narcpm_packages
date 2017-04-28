@@ -9,7 +9,8 @@ if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 		SHOW_PROGRESS)
 endif()
 
-exec_program(${CMAKE_COMMAND} -E tar xf ${PACKAGE_ROOT}/glew.zip)
+exec_program(${CMAKE_COMMAND} -E tar xf glew.zip
+	WORKING_DIRECTORY ${PACKAGE_ROOT})
 exec_program(${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 
 add_library(glew
