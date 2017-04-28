@@ -9,17 +9,15 @@ if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 		SHOW_PROGRESS)
 endif()
 
-if (${BUILD_SHARED_LIBS})
-	message("FOOOOOOO!!!!!!!!!!!!!!!!")
-endif()
-
 if (NOT EXISTS ${PACKAGE_ROOT}/repository)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf glew.zip
 		WORKING_DIRECTORY ${PACKAGE_ROOT})
 	execute_process(COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 endif()
 
-add_library(glew
+add_library(glew STATIC
+	${PACKAGE_ROOT}/repository/src/glew.c)
+add_library(glew SHARED
 	${PACKAGE_ROOT}/repository/src/glew.c)
 
 target_include_directories(glew PUBLIC
