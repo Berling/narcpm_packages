@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7 FATAL_ERROR)
-project(glew VERSION 0.0.0 LANGUAGES CXX)
+project(glew VERSION 0.0.0 LANGUAGES C)
 
 if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 	message("-- downloading snapshot for package glew")
@@ -17,3 +17,7 @@ endif()
 
 add_library(glew
 	${PACKAGE_ROOT}/repository/src/glew.c)
+
+target_include_directories(glew PUBLIC
+	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
+	$<INSTALL_INTERFACE:include>)
