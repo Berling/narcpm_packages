@@ -11,7 +11,7 @@ endif()
 
 execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf glew.zip
 	WORKING_DIRECTORY ${PACKAGE_ROOT})
-# execute_process(COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
+execute_process(COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 
 add_library(glew
 	${PACKAGE_ROOT}/repository/src/glew.c)
