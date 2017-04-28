@@ -17,3 +17,4 @@ add_custom_command(TARGET extract
 
 add_library(glew
 	${PACKAGE_ROOT}/repository/src/glew.c)
+add_dependencies(glew extract)
