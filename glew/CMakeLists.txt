@@ -15,8 +15,5 @@ add_custom_command(TARGET extract
 add_custom_command(TARGET extract
 	COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 
-# file(GLOB_RECURSE src
-# 	${PACKAGE_ROOT}/repository/src/*.cpp)
-
-# add_library(glew
-# 	${src})
+add_library(glew
+	${PACKAGE_ROOT}/repository/src/glew.c)
