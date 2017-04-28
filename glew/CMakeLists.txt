@@ -17,19 +17,19 @@ endif()
 
 add_library(objlib OBJECT ${PACKAGE_ROOT}/repository/src/glew.c)
 set_property(TARGET ${objlib} PROPERTY POSITION_INDEPENDENT_CODE 1)
+target_include_directories(objlib PUBLIC
+	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
+	$<INSTALL_INTERFACE:include>)
+
 
 add_library(glew_static STATIC
 	$<TARGET_OBJECTS:objlib>)
 add_library(glew_shared SHARED
 	$<TARGET_OBJECTS:objlib>)
 SET_TARGET_PROPERTIES(glew_static PROPERTIES OUTPUT_NAME glew CLEAN_DIRECT_OUTPUT 1)
-SET_TARGET_PROPERTIES(glew_shared PROPERTIES OUTPUT_NAME glew CLEAN_DIRECT_OUTPUT 1)
+SET_TARGET_PROPERTIES(glew_shared PROPERTIES OUTPUT_NAME glew CLEAN_DIRECT_OUTPUT 1)11
 
-target_include_directories(glew PUBLIC
-	$<BUILD_INTERFACE:${PACKAGE_ROOT}/repository/include>
-	$<INSTALL_INTERFACE:include>)
-
-install(TARGETS glew EXPORT glew
+install(TARGETS glew_static glew_shared EXPORT glew
 	ARCHIVE DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}
 	LIBRARY DESTINATION ${PACKAGE_ROOT0/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}})
 install(DIRECTORY ${PACKAGE_ROOT}/repository/include/GL DESTINATION ${PACKAGE_ROOT}/include)
