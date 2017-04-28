@@ -9,6 +9,10 @@ if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 		SHOW_PROGRESS)
 endif()
 
+if (${BUILD_SHARED_LIBS})
+	message("FOOOOOOO!!!!!!!!!!!!!!!!")
+endif()
+
 if (NOT EXISTS ${PACKAGE_ROOT}/repository)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf glew.zip
 		WORKING_DIRECTORY ${PACKAGE_ROOT})
@@ -25,5 +29,4 @@ target_include_directories(glew PUBLIC
 install(TARGETS glew EXPORT glew
 	ARCHIVE DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}
 	LIBRARY DESTINATION ${PACKAGE_ROOT0/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}})
-message("${PACKAGE_ROOT}")
-install(DIRECTORY ${PACKAGE_ROOT}/repository/include DESTINATION ${PACKAGE_ROOT}/include)
+install(DIRECTORY ${PACKAGE_ROOT}/repository/include/GL DESTINATION ${PACKAGE_ROOT}/include)
