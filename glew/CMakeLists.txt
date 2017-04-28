@@ -9,11 +9,8 @@ if (NOT EXISTS ${PACKAGE_ROOT}/glew.zip)
 		SHOW_PROGRESS)
 endif()
 
-add_custom_command(OUTPUT
-	${PACKAGE_ROOT}/glew-2.0.0
-	COMMAND ${CMAKE_COMMAND} -E tar xf ${PACKAGE_ROOT}/glew.zip)
-# add_custom_command(TARGET extract
-# 	COMMAND ${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
+exec_program(${CMAKE_COMMAND} -E tar xf ${PACKAGE_ROOT}/glew.zip)
+exec_program(${CMAKE_COMMAND} -E rename ${PACKAGE_ROOT}/glew-2.0.0 ${PACKAGE_ROOT}/repository)
 
 add_library(glew
 	${PACKAGE_ROOT}/repository/src/glew.c)
