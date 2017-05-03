@@ -16,3 +16,4 @@ endif()
 add_custom_target(boost ALL)
 add_custom_command(TARGET boost
 	COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build --libdir=${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} --includedir=${PACKAGE_ROOT}/include install variant=${BUILD_TYPE} toolset=${TOOLCHAIN} link=static,shared threading=multi cxxflags="-std=c++1z" -j 8)
+install(TARGETS boost EXPORT boost)
