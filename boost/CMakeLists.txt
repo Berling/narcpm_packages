@@ -15,6 +15,7 @@ endif()
 
 if (${TOOLCHAIN} MATCHES "clang")
 	set(CXX_FLAGS "-stdlib=libc++")
+endif()
 
 add_custom_target(boost ALL)
 add_custom_command(TARGET boost
