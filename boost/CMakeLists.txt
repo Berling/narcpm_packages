@@ -13,7 +13,7 @@ else()
 	set(BUILD_TYPE release)
 endif()
 
-set(CXX_FALGS "-std=c++1z")
+set(CXX_FLAGS "-std=c++1z")
 if (${TOOLCHAIN} MATCHES "clang")
 	set(CXX_FLAGS "${CXX_FLAGS} -stdlib=libc++")
 endif()
