@@ -15,6 +15,6 @@ endif()
 
 add_custom_target(boost ALL)
 add_custom_command(TARGET boost
-	COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}/static --prefix=${PACKAGE_ROOT} --exec-prefix=${PACKAGE_ROOT} --libdir=lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install variant=${BUILD_TYPE} toolset=${TOOLCHAIN} link=static threading=multi -j 8)
+	COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}/static --libdir=${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} --includedir=${PACKAGE_ROOT}/include install variant=${BUILD_TYPE} toolset=${TOOLCHAIN} link=static threading=multi -j 8)
 add_custom_command(TARGET boost
-	COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}/shared --prefix=${PACKAGE_ROOT} --exec-prefix=${PACKAGE_ROOT} --libdir=lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install variant=${BUILD_TYPE} toolset=${TOOLCHAIN} link=shared threading=multi -j 8)
+	COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}/shared --libdir=${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} --includedir=${PACKAGE_ROOT}/include install variant=${BUILD_TYPE} toolset=${TOOLCHAIN} link=shared threading=multi -j 8)
