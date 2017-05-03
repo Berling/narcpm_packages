@@ -7,6 +7,6 @@ if (NOT EXISTS ${PACKAGE_ROOT}/repository/b2)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./bootstrap.sh)
 endif()
 
-execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install toolset=${TOOLSET} link=static threading=multi -j 8)
-execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install toolset=${TOOLSET} link=shared threading=multi -j 8)
+execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install toolset=${TOOLCHAIN} link=static threading=multi -j 8)
+execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository ./b2 --build-dir=${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE} install toolset=${TOOLCHAIN} link=shared threading=multi -j 8)
 execute_process(COMMAND ${CMAKE_COMMAND} -E copy_directory ${PACKAGE_ROOT}/repository/include/boost ${PACKAGE_ROOT}/include)
