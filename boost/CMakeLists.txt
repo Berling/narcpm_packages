@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7 FATAL_ERROR)
-project(boost VERSION 0.0.0 LANGUAGES C)
+project(boost VERSION 0.0.0 LANGUAGES CXX)
 
 execute_process(COMMAND ${CMAKE_COMMAND} -E chdir ${PACKAGE_ROOT}/repository git submodule update --init)
 
