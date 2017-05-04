@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.7 FATAL_ERROR)
 project(assimp VERSION 0.0.0 LANGUAGES CXX)
 
-set(CXX_FLAGS "-std=c++11")
+set(CXX_FLAGS "-std=c++1z")
 if (${TOOLCHAIN} MATCHES "clang")
 	set(CXX_FLAGS "${CXX_FLAGS} -stdlib=libc++")
 endif()
