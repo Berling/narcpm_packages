@@ -7,6 +7,5 @@ execute_process(COMMAND ${CMAKE_COMMAND} -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_T
 execute_process(COMMAND make -j 8)
 set(BUILD_DIR ${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE})
 file(GLOB_RECURSE libs ${PACKAGE_ROOT}/build/${TOOLCHAIN}/${CMAKE_BUILD_TYPE}/src/libglfw*)
-message("${libs}")
-install(FILES ${libs} DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${BUILD_TYPE})
+install(FILES ${libs} DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE})
 install(DIRECTORY ${PACKAGE_ROOT}/repository/include/GLFW DESTINATION ${PACKAGE_ROOT}/include)
