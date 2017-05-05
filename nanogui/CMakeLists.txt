@@ -11,3 +11,5 @@ execute_process(COMMAND ${CMAKE_COMMAND} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DBUILD_
 execute_process(COMMAND make -j 8)
 execute_process(COMMAND ${CMAKE_COMMAND} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} ${PACKAGE_ROOT}/repository)
 execute_process(COMMAND make -j 8)
+install(FILES libnanogui.so libnanogui.a DESTINATION ${PACKAGE_ROOT}/lib/${TOOLCHAIN}/${CMAKE_BUILD_TYPE})
+install(DIRECTORY ${PACKAGE_ROOT}/repository/include/nanogui ${PACKAGE_ROOT}/include)
